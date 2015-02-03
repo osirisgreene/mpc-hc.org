@@ -138,6 +138,20 @@ module.exports = function(grunt) {
             }
         },
 
+        critical: {
+            dist: {
+                options: {
+                    base: '<%= dirs.dest %>',
+                    css: ['<%= concat.css.dest %>'],
+                    extract: true,
+                    width: 1300,
+                    height: 900
+                },
+                src: '<%= dirs.dest %>/index.html',
+                dest: '<%= dirs.src %>/assets/css/critical.css'
+            }
+        },
+
         cssmin: {
             minify: {
                 options: {
@@ -204,9 +218,13 @@ module.exports = function(grunt) {
             options: {
                 assetsDirs: [
                     '<%= dirs.dest %>/',
+                    '<%= dirs.dest %>/assets/css/',
                     '<%= dirs.dest %>/assets/img/'
                 ],
                 patterns: {
+                    html: [
+                        [/loadCSS\(['"]([^"']+)['"]\)/gm, 'Replacing reference to CSS within `loadCSS`']
+                    ],
                     js: [
                         [/navigator\.serviceWorker\.register\(["'](\/sw\.min\.js)["']/gm, 'Replacing reference to sw.min.js']
                     ]
@@ -225,10 +243,25 @@ module.exports = function(grunt) {
                 options: {
                     base: 'https://cdn.mpc-hc.org/',
                     html: {
+                        'link[rel="preload"]': 'href',
                         'meta[itemprop="image"]': 'content',
                         'meta[property="og:image:secure_url"]': 'content',
                         'input[type="image"]': 'src'
                     }
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= dirs.dest %>/',
+                    src: '**/*.{html,php}',
+                    dest: '<%= dirs.dest %>/'
+                }]
+            }
+        },
+
+        staticinline: {
+            dist: {
+                options: {
+                    basepath: '<%= dirs.src %>/'
                 },
                 files: [{
                     expand: true,
@@ -297,6 +330,11 @@ module.exports = function(grunt) {
         },
 
         htmllint: {
+            options: {
+                ignore: [
+                    'A "link" element with an "integrity" attribute must have a "rel" attribute that contains the value "stylesheet".'
+                ]
+            },
             src: '<%= dirs.dest %>/**/*.html'
         },
 
@@ -384,6 +422,8 @@ module.exports = function(grunt) {
         'concat',
         'autoprefixer',
         'uncss',
+        'critical',
+        'staticinline',
         'cssmin',
         'uglify',
         'filerev',
@@ -398,7 +438,7 @@ module.exports = function(grunt) {
     var envCI = process.env.CI || process.env.ci;
 
     if (envCI && envCI.toLowerCase() === 'true') {
-        buildTasks.splice(12, 1);
+        buildTasks.splice(14, 1);
     }
 
     grunt.registerTask('build', buildTasks);
@@ -417,6 +457,8 @@ module.exports = function(grunt) {
         'useminPrepare',
         'concat',
         'autoprefixer',
+        'critical',
+        'staticinline',
         'filerev',
         'usemin',
         'generate-sri',

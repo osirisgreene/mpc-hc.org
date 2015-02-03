@@ -13,7 +13,12 @@
         <meta name="description" content="{{ meta_description }}">
         <meta name="generator" content="Jekyll v{{ jekyll.version }}">
 
-        <link rel="stylesheet" href="/assets/css/pack.css" integrity="@@packCssIntegrity" crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/css/critical.css" inline="true">
+        <link rel="preload" href="/assets/css/pack.css" as="style" onload="this.rel='stylesheet'" integrity="@@packCssIntegrity" crossorigin="anonymous">
+
+        <noscript>
+            <link rel="stylesheet" href="/assets/css/pack.css" integrity="@@packCssIntegrity" crossorigin="anonymous">
+        </noscript>
 
         <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
         <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -64,6 +69,7 @@
 
         {% feed_meta %}
 
+        <script src="/assets/js/vendor/loadCSS.js" inline="true"></script>
     </head>
 
     {% capture body_class %}{{ page.layout }}{% if page.body_class %} page-{{ page.body_class }}{% elsif page.slug %} page-{{ page.slug | slugify }}{% endif %}{% endcapture %}
