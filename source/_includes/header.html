@@ -1,16 +1,12 @@
 <!doctype html>
-<html lang="en" class="no-js" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" class="no-js">
     <head>
         <meta charset="utf-8">
-
         <link rel="dns-prefetch" href="{{ site.cdn_url }}">
 
         {% capture title %}{% if paginator.page and paginator.page != 1 %}{{ page.title }} - Page {{ paginator.page }}{% else %}{{ page.title }}{% endif%} &middot; MPC-HC{% endcapture %}
         <title>{{ title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        {% capture meta_description %}{% if page.description %}{{ page.description }}{% if paginator.page and paginator.page != 1 %} - Page {{ paginator.page }}{% endif%}{% elsif page.excerpt %}{{ page.excerpt | newline_to_br | replace: '<br />', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | rstrip | truncate: 155 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
-        <meta name="description" content="{{ meta_description }}">
         <meta name="generator" content="Jekyll v{{ jekyll.version }}">
 
         <link rel="stylesheet" href="/assets/css/pack.css" integrity="@@packCssIntegrity" crossorigin="anonymous">
@@ -25,29 +21,12 @@
         <meta name="theme-color" content="#6bba70">
         <meta name="application-name" content="">
 
-        <meta property="fb:app_id" content="1552669435051497">
-        <meta property="og:title" content="{{ title }}">
-        <meta property="og:type" content="website">
-        <meta property="og:description" content="{{ meta_description }}">
-        {% if page.slug == "home" %}
-        <meta property="og:url" content="{{ site.url }}/">
-        {% else %}
-        <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-        {% endif %}
-        <meta property="og:image" content="{{ site.cdn_url | replace: 'https://', 'http://' }}/assets/img/logo-256x256.png">
-        <meta property="og:image:secure_url" content="{{ site.cdn_url }}/assets/img/logo-256x256.png">
+        <!-- The following aren't added by Jekyll SEO Tag plugin -->
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="256">
         <meta property="og:image:height" content="256">
 
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:creator" content="@mpc_hc">
-        <meta name="twitter:site" content="@mpc_hc">
-        <meta name="twitter:title" content="{{ title }}">
-
-        <meta itemprop="name" content="MPC-HC">
-        <meta itemprop="description" content="{{ meta_description }}">
-        <meta itemprop="image" content="/assets/img/logo-256x256.png">
+        {% seo title=false %}
 
         {% if paginator.total_pages > 1 %}
         {% if paginator.page == 1 %}
