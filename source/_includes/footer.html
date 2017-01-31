@@ -82,7 +82,39 @@
         </noscript>
 
         <script src="/assets/js/pack.js" integrity="@@packJsIntegrity" crossorigin="anonymous" async></script>
-        <script src="/assets/js/jquery-pack.js" integrity="@@jqueryPackJsIntegrity" crossorigin="anonymous" async></script>
+
+        <script>
+            (function() {
+                'use strict';
+
+                var deferLoad = (function () {
+                    var imgElement = document.getElementsByTagName('img');
+
+                    for (var i = 0, len = imgElement.length; i < len; i++) {
+                        if (imgElement[i].hasAttribute('data-src')) {
+                            imgElement[i].setAttribute('src', imgElement[i].getAttribute('data-src'));
+                            imgElement[i].removeAttribute('data-src');
+                            imgElement[i].className += ' loaded';
+                        }
+                    }
+
+                    loadjs('https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.slim.min.js', 'jquery');
+                    loadjs('/assets/js/jquery-pack.js', 'jquery-pack');
+
+                    // wait for multiple depdendencies
+                    loadjs.ready(['jquery', 'jquery-pack'], {
+                        success: function() {
+                            // jquery.slim.min.js loaded then jquery-pack.js loaded in series
+                        },
+                        async: false
+                    });
+
+                });
+
+                window.addEventListener('DOMContentLoaded', deferLoad, false);
+
+            })();
+        </script>
 
     </body>
 </html>

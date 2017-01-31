@@ -73,9 +73,10 @@ module.exports = function(grunt) {
                 src: [
                     '<%= dirs.src %>/assets/js/vendor/plugins.js',
                     '<%= dirs.src %>/assets/js/vendor/baguetteBox.js',
+                    '<%= dirs.src %>/assets/js/vendor/loadjs.js',
+                    '<%= dirs.src %>/assets/js/vendor/baguetteBox.js',
                     '<%= dirs.src %>/assets/js/baguetteBox-init.js',
                     '<%= dirs.src %>/assets/js/detect-os.js',
-                    '<%= dirs.src %>/assets/js/img-defer.js',
                     '<%= dirs.src %>/assets/js/no-js-class.js',
                     '<%= dirs.src %>/assets/js/google-analytics.js'
                 ],
@@ -187,7 +188,14 @@ module.exports = function(grunt) {
             css: '<%= dirs.dest %>/assets/css/pack*.css',
             html: ['<%= dirs.dest %>/**/*.html', '<%= dirs.dest %>/**/*.php'],
             options: {
-                assetsDirs: ['<%= dirs.dest %>/', '<%= dirs.dest %>/assets/img/']
+                assetsDirs: ['<%= dirs.dest %>/', '<%= dirs.dest %>/assets/img/'],
+                patterns: {
+                    html: [
+                        [
+                            /loadjs\(['"]([^"']+)['"]/gm, 'Replacing reference to jquery-pack.js'
+                        ]
+                    ]
+                }
             }
         },
 
@@ -247,7 +255,7 @@ module.exports = function(grunt) {
 
         bootlint: {
             options: {
-                relaxerror: ['W001', 'W002', 'W003']
+                relaxerror: ['W001', 'W002', 'W003', 'W005']
             },
             files: '<%= dirs.dest %>/**/*.html'
         },
