@@ -56,7 +56,8 @@ you should see a green tick for the selected renderer in **Options &rarr; Output
 <div class="row gallery">
     <div class="col-xs-12 col-sm-4 text-center">
         <a class="thumbnail" href="/assets/img/faq/options-output.png" title="Options &rarr; Output tab">
-            <img src="/assets/img/faq/options-output-thumb.png" width="300" height="227" alt="Options &rarr; Output tab">
+            <img class="defer" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20300%20200%27%2F%3E" data-src="/assets/img/faq/options-output-thumb.png" width="300" height="227" alt="Options &rarr; Output tab">
+            <noscript><img src="/assets/img/faq/options-output-thumb.png" width="300" height="227" alt="Options &rarr; Output tab"></noscript>
         </a>
     </div>
 </div>

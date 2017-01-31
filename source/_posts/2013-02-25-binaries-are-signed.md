@@ -22,7 +22,8 @@ a custom build or a potential *scam* file.
 <div class="row gallery">
     <div class="col-xs-12 col-sm-4 text-center">
         <a class="thumbnail" href="/assets/img/news/properties-signature.png" title="Windows Explorer Properties Signature tab">
-            <img src="/assets/img/news/properties-signature-thumb.png" width="300" height="241" alt="Windows Explorer Properties Signature tab">
+            <img class="defer" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20300%20200%27%2F%3E" data-src="/assets/img/news/properties-signature-thumb.png" width="300" height="241" alt="Windows Explorer Properties Signature tab">
+            <noscript><img src="/assets/img/news/properties-signature-thumb.png" width="300" height="241" alt="Windows Explorer Properties Signature tab"></noscript>
         </a>
     </div>
 </div>
@@ -34,7 +35,8 @@ installation and download the file again from our [*downloads*](/downloads/).
 <div class="row gallery">
     <div class="col-xs-12 col-sm-4 text-center">
         <a class="thumbnail" href="/assets/img/news/install-uac.png" title="Install UAC prompt">
-            <img src="/assets/img/news/install-uac-thumb.png" width="300" height="183" alt="Install UAC prompt">
+            <img class="defer" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20300%20200%27%2F%3E" data-src="/assets/img/news/install-uac-thumb.png" width="300" height="183" alt="Install UAC prompt">
+            <noscript><img src="/assets/img/news/install-uac-thumb.png" width="300" height="183" alt="Install UAC prompt"></noscript>
         </a>
     </div>
 </div>
