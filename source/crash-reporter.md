@@ -15,7 +15,8 @@ It lets you submit extra information to help developers fix the issue.
 
 After MPC-HC crashes, the *Crash Reporter* window will appear.
 
-<img class="img-responsive" src="/assets/img/crash-reporter/crash_reporter.png" width="466" height="428" alt="Crash reporter dialog">
+<img class="img-responsive defer" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20300%20200%27%2F%3E" data-src="/assets/img/crash-reporter/crash_reporter.png" width="466" height="428" alt="Crash reporter dialog">
+<noscript><img class="img-responsive" src="/assets/img/crash-reporter/crash_reporter.png" width="466" height="428" alt="Crash reporter dialog"></noscript>
 
 This dialog can be used to provide information that might be useful to the developers:
 
@@ -26,7 +27,8 @@ If you do not wish to provide extra information, you may leave any of those fiel
 
 After you quit this dialog, the *Crash Reporter* will try to identify the crash in case it has already been reported. If it has not, the following dialog will request your authorization before sending more information about the crash.
 
-<img class="img-responsive" src="/assets/img/crash-reporter/send_more_info.png" width="348" height="189" alt="Send more info dialog">
+<img class="img-responsive defer" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20300%20200%27%2F%3E" data-src="/assets/img/crash-reporter/send_more_info.png" width="348" height="189" alt="Send more info dialog">
+<noscript><img class="img-responsive" src="/assets/img/crash-reporter/send_more_info.png" width="348" height="189" alt="Send more info dialog"></noscript>
 
 If you agree, just press **Send information** and wait while the crash report is transmitted to us. Remember that if you choose not to send us that information, it could be extremely difficult for us to get a clear view of what happened.
 

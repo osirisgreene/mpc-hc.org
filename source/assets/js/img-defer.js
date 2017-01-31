@@ -8,7 +8,7 @@
         return;
     }
 
-    function imgDefer () {
+    function load () {
         for (var i = 0; i < imagesNumber; i++) {
             if (images[i].hasAttribute('data-src')) {
                 images[i].setAttribute('src', images[i].getAttribute('data-src'));
@@ -18,6 +18,6 @@
         }
     }
 
-    window.addEventListener('load', imgDefer, false);
+    window.addEventListener('load', load, false);
 
 })();
