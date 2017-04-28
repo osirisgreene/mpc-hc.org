@@ -353,7 +353,7 @@ h6[id]:before {
 
 .defer.loaded {
     opacity: 1;
-    transition: opacity 0.3s ease 0s;
+    transition: opacity 0.5s ease 0s;
 }
 
 .browserPrompt {
