@@ -220,6 +220,32 @@ module.exports = function(grunt) {
             ]
         },
 
+        compress: {
+            htmlBr: {
+                options: {
+                    mode: 'brotli'
+                },
+                expand: true,
+                cwd: '<%= dirs.dest %>/',
+                src: ['**/*.html'],
+                dest: '<%= dirs.dest %>/',
+                extDot: 'last',
+                ext: '.html.br'
+            },
+            htmlGz: {
+                options: {
+                    mode: 'gzip',
+                    level: 9
+                },
+                expand: true,
+                cwd: '<%= dirs.dest %>/',
+                src: ['**/*.html'],
+                dest: '<%= dirs.dest %>/',
+                extDot: 'last',
+                ext: '.html.gz'
+            }
+        },
+
         connect: {
             options: {
                 hostname: 'localhost',
@@ -371,7 +397,8 @@ module.exports = function(grunt) {
         'usemin',
         'generate-sri',
         'includereplace',
-        'htmlmin'
+        'htmlmin',
+        'compress'
     ];
 
     grunt.registerTask('build', buildTasks);
