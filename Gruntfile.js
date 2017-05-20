@@ -221,6 +221,29 @@ module.exports = function(grunt) {
         },
 
         compress: {
+            cssBr: {
+                options: {
+                    mode: 'brotli'
+                },
+                expand: true,
+                cwd: '<%= dirs.dest %>/',
+                src: ['**/*.css'],
+                dest: '<%= dirs.dest %>/',
+                extDot: 'last',
+                ext: '.css.br'
+            },
+            cssGz: {
+                options: {
+                    mode: 'gzip',
+                    level: 9
+                },
+                expand: true,
+                cwd: '<%= dirs.dest %>/',
+                src: ['**/*.css'],
+                dest: '<%= dirs.dest %>/',
+                extDot: 'last',
+                ext: '.css.gz'
+            },
             htmlBr: {
                 options: {
                     mode: 'brotli'
@@ -243,6 +266,29 @@ module.exports = function(grunt) {
                 dest: '<%= dirs.dest %>/',
                 extDot: 'last',
                 ext: '.html.gz'
+            },
+            jsBr: {
+                options: {
+                    mode: 'brotli'
+                },
+                expand: true,
+                cwd: '<%= dirs.dest %>/',
+                src: ['**/*.js'],
+                dest: '<%= dirs.dest %>/',
+                extDot: 'last',
+                ext: '.js.br'
+            },
+            jsGz: {
+                options: {
+                    mode: 'gzip',
+                    level: 9
+                },
+                expand: true,
+                cwd: '<%= dirs.dest %>/',
+                src: ['**/*.js'],
+                dest: '<%= dirs.dest %>/',
+                extDot: 'last',
+                ext: '.js.gz'
             }
         },
 
