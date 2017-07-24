@@ -82,7 +82,7 @@ set "Hardware decoder to use:" to "None" and then reload the video (<kbd>Ctrl+E<
 If this does not solve your issue, and your video plays correctly in other
 video players then please make a bug report.
 
-### Will MPC-HC support Windows RT or Metro?
+### Will MPC-HC support Universal Windows Platform (UWP)?
 
-Supporting these new platforms require many changes and this is simply
+Supporting this new platform would require many changes; this is simply
 not possible for us in the near future, with the current manpower.
